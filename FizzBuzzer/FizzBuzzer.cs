@@ -22,8 +22,14 @@ namespace FizzBuzz
         /// </summary>
         public bool ShowValue= true;
 
-        public List<DivisorLabel> DivisorLabels;
+        public List<DivisorLabelPair> DivisorLabels;
 
+        /// <summary>
+        /// Constructed object will have default label/divisor pairs
+        ///   (3:fizz, 5:buzz)
+        /// </summary>
+        /// <param name="min">Start of range of numbers to check (optional, default=1)</param>
+        /// <param name="max">End of range of numbers to check (optional, default=100)</param>
         public FizzBuzzer(int min = defaultMin, int max = defaultMax)
         {
             if (min < 0) throw new ArgumentException("Minimum range value cannot be negative");
@@ -42,12 +48,17 @@ namespace FizzBuzz
             }
             if (null == DivisorLabels)
             {
-                DivisorLabels = new List<DivisorLabel>();
+                DivisorLabels = new List<DivisorLabelPair>();
                 AddDivisorLabelPair(3, "fizz");
                 AddDivisorLabelPair(5, "buzz");
             }
         }
-        public FizzBuzzer(List<DivisorLabel> labelsForDivisors, int min = defaultMin, int max = defaultMax):this(min,max)
+        /// <summary>
+        /// Constructed object will have provided label/divisor pairs
+        /// </summary>
+        /// <param name="min">Start of range of numbers to check (optional, default=1)</param>
+        /// <param name="max">End of range of numbers to check (optional, default=100)</param>
+        public FizzBuzzer(List<DivisorLabelPair> labelsForDivisors, int min = defaultMin, int max = defaultMax):this(min,max)
         {
             DivisorLabels = labelsForDivisors;
         }
@@ -59,6 +70,7 @@ namespace FizzBuzz
             for (int i = Min; i <= Max; i++)
             {
                 resultForEach = new StringBuilder();
+                //only add number if option is true
                 if (ShowValue) resultForEach.Append(i);
                 foreach (var divisorLabelPair in DivisorLabels)
                 {
@@ -70,13 +82,31 @@ namespace FizzBuzz
             return results;
         }
 
+        public void ClearDivisorLabels()
+        {
+            DivisorLabels.Clear();
+        }
+
+        public void SetDivisorLabelPairs(List<DivisorLabelPair> divisorLabels)
+        {
+            if (null != divisorLabels) DivisorLabels = divisorLabels;
+        }
+
         public void AddDivisorLabelPair(int divisor, string label)
         {
-            if (null == DivisorLabels) DivisorLabels = new List<DivisorLabel>();
-            var pair = new DivisorLabel(divisor, label);
+            if (null == DivisorLabels) DivisorLabels = new List<DivisorLabelPair>();
+            var pair = new DivisorLabelPair(divisor, label);
             if (!DivisorLabels.Contains(pair))
             {
                 DivisorLabels.Add(pair);
+            }
+        }
+
+        public void RemoveDivisorLabelPair(DivisorLabelPair divisorLabel)
+        {
+            if (null != DivisorLabels && DivisorLabels.Contains(divisorLabel))
+            {
+                DivisorLabels.Remove(divisorLabel);
             }
         }
     }

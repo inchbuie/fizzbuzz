@@ -8,7 +8,7 @@ namespace FizzBuzzerTests.FizzBuzzerClass
     [TestClass]
     public class CustomParameterTests
     {
-        private const string trait = "CustomParameterTests";
+        private const string trait = "FizzBuzzerClass.CustomParameterTests";
 
         [TestMethod]
         [TestCategory(trait)]
@@ -16,7 +16,7 @@ namespace FizzBuzzerTests.FizzBuzzerClass
         {
             int value = 3;
             string customLabel="Excelsior";
-            List<DivisorLabel> labelPairs = new List<DivisorLabel>(){new DivisorLabel(value,customLabel)};
+            List<DivisorLabelPair> labelPairs = new List<DivisorLabelPair>(){new DivisorLabelPair(value,customLabel)};
             var expected = string.Format("{0}{1}{2}", value, customLabel, Environment.NewLine);
             var fizzBuzzer = new FizzBuzzer(labelPairs);
             var actual = fizzBuzzer.CheckRange()[value-1];
@@ -29,7 +29,7 @@ namespace FizzBuzzerTests.FizzBuzzerClass
             int value = 18;
             string customLabel = "fizz";
             int customDivisor = 9;
-            List<DivisorLabel> labelPairs = new List<DivisorLabel>() { new DivisorLabel(customDivisor, customLabel) };
+            List<DivisorLabelPair> labelPairs = new List<DivisorLabelPair>() { new DivisorLabelPair(customDivisor, customLabel) };
             var expected = string.Format("{0}{1}{2}", value, customLabel, Environment.NewLine);
             var fizzBuzzer = new FizzBuzzer(labelPairs);
             var actual = fizzBuzzer.CheckRange()[value - 1];
@@ -39,11 +39,11 @@ namespace FizzBuzzerTests.FizzBuzzerClass
         [TestCategory(trait)]
         public void CustomParameter_ThreEntirelyCustomDivisorLabelsShouldWork()
         {
-            List<DivisorLabel> labelPairs = new List<DivisorLabel>() 
+            List<DivisorLabelPair> labelPairs = new List<DivisorLabelPair>() 
             { 
-                new DivisorLabel(8, "Ocho!") 
-                ,new DivisorLabel(12, "Even Dozen")
-                ,new DivisorLabel(43, "BigPrime") 
+                new DivisorLabelPair(8, "Ocho!") 
+                ,new DivisorLabelPair(12, "Even Dozen")
+                ,new DivisorLabelPair(43, "BigPrime") 
             };
             int value = 32;
             var expected = string.Format("{0}{1}{2}", value, labelPairs[0].Label, Environment.NewLine);
@@ -73,13 +73,13 @@ namespace FizzBuzzerTests.FizzBuzzerClass
         [TestCategory(trait)]
         public void CustomParameter_CustomRange5ParametersShouldWork()
         {
-            List<DivisorLabel> labelPairs = new List<DivisorLabel>() 
+            List<DivisorLabelPair> labelPairs = new List<DivisorLabelPair>() 
             { 
-                new DivisorLabel(2, "two") 
-                ,new DivisorLabel(3, "three")
-                ,new DivisorLabel(4, "four") 
-                ,new DivisorLabel(5, "five") 
-                ,new DivisorLabel(6, "six") 
+                new DivisorLabelPair(2, "two") 
+                ,new DivisorLabelPair(3, "three")
+                ,new DivisorLabelPair(4, "four") 
+                ,new DivisorLabelPair(5, "five") 
+                ,new DivisorLabelPair(6, "six") 
             };
 
             int value = 720; //2*3*4*5*6
@@ -94,13 +94,13 @@ namespace FizzBuzzerTests.FizzBuzzerClass
         [TestCategory(trait)]
         public void CustomParameter_CustomRangeWithCustomDivisorLabels_FirstValueAsExpected()
         {
-            List<DivisorLabel> labelPairs = new List<DivisorLabel>() 
+            List<DivisorLabelPair> labelPairs = new List<DivisorLabelPair>() 
             { 
-                new DivisorLabel(2, "two") 
-                ,new DivisorLabel(3, "three")
-                ,new DivisorLabel(4, "four") 
-                ,new DivisorLabel(5, "five") 
-                ,new DivisorLabel(6, "six") 
+                new DivisorLabelPair(2, "two") 
+                ,new DivisorLabelPair(3, "three")
+                ,new DivisorLabelPair(4, "four") 
+                ,new DivisorLabelPair(5, "five") 
+                ,new DivisorLabelPair(6, "six") 
             };
 
             int value = 317;
@@ -115,13 +115,13 @@ namespace FizzBuzzerTests.FizzBuzzerClass
         [TestCategory(trait)]
         public void CustomParameter_CustomRangeWithCustomDivisorLabels_LastValueAsExpected()
         {
-            List<DivisorLabel> labelPairs = new List<DivisorLabel>() 
+            List<DivisorLabelPair> labelPairs = new List<DivisorLabelPair>() 
             { 
-                new DivisorLabel(2, "two") 
-                ,new DivisorLabel(3, "three")
-                ,new DivisorLabel(4, "four") 
-                ,new DivisorLabel(5, "five") 
-                ,new DivisorLabel(6, "six") 
+                new DivisorLabelPair(2, "two") 
+                ,new DivisorLabelPair(3, "three")
+                ,new DivisorLabelPair(4, "four") 
+                ,new DivisorLabelPair(5, "five") 
+                ,new DivisorLabelPair(6, "six") 
             };
 
             int value = 999;

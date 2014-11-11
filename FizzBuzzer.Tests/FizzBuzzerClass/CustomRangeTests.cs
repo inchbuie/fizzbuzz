@@ -8,7 +8,7 @@ namespace FizzBuzzerTests.FizzBuzzerClass
     [TestClass]
     public class CustomRangeTests
     {
-        private const string trait = "CustomRangeTests";
+        private const string trait = "FizzBuzzerClass.CustomRangeTests";
 
         [TestMethod]
         [TestCategory(trait)]

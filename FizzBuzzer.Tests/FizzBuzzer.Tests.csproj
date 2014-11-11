@@ -50,6 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="DivisorLabelPairClass\DivisibleTests.cs" />
     <Compile Include="FizzBuzzerClass\DefaultParameterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FizzBuzzerClass\CustomParameterTests.cs" />

@@ -8,7 +8,7 @@ namespace FizzBuzzerTests.FizzBuzzerClass
     [TestClass]
     public class DefaultParameterTests
     {
-        private const string trait = "DefaultParameterTests";
+        private const string trait = "FizzBuzzerClass.DefaultParameterTests";
 
         [TestMethod]
         [TestCategory(trait)]

@@ -12,11 +12,12 @@ namespace FizzBuzz
     ///   and Label to add if the number is divisible
     ///   e.g. Label:fizz, Divisor:3
     /// </summary>
-    public class DivisorLabel
+    public class DivisorLabelPair
     {
-        public DivisorLabel(int divisor, string label)
+        public DivisorLabelPair(int divisor, string label)
         {
             if (null == label) throw new ArgumentNullException("label");
+            if (0 == divisor) throw new ArgumentOutOfRangeException("divisor", "Cannot be zero");
             Label = label;
             Divisor = divisor;
         }
@@ -29,7 +30,6 @@ namespace FizzBuzz
         }
         public string LabelIfDivisible(int value)
         {
-
             return IsDivisible(value) ? Label : string.Empty;
         }
     }

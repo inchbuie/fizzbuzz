@@ -8,21 +8,21 @@ namespace FizzBuzzerTests.FizzBuzzerClass
     [TestClass]
     public class AddDivisorLabelPairTests
     {
-        private const string trait = "AddDivisorLabelPairTests";
+        private const string trait = "FizzBuzzerClass.AddDivisorLabelPairTests";
         private FizzBuzzer fizzBuzzer;
 
         [TestInitialize]
         public void InitializeFizzBuzzerClass()
         {
-            fizzBuzzer = new FizzBuzzer();
+            //add empty list to make sure default parameters are not used
+            fizzBuzzer = new FizzBuzzer(new List<DivisorLabelPair>());
         }
 
         [TestMethod]
         [TestCategory(trait)]
         public void CanAddSingle()
         {
-            //2 default parameters + 1 we will add
-            int expected = 3;
+            int expected = 1;
             fizzBuzzer.AddDivisorLabelPair(7, "=Qwerty");
             Assert.AreEqual(expected, fizzBuzzer.DivisorLabels.Count);
         }
@@ -32,7 +32,7 @@ namespace FizzBuzzerTests.FizzBuzzerClass
         public void CanAddSingleWithExpectedData()
         {
             fizzBuzzer.AddDivisorLabelPair(7, "=Qwerty");
-            var pair = fizzBuzzer.DivisorLabels[2];
+            var pair = fizzBuzzer.DivisorLabels[0];
             Assert.AreEqual(7, pair.Divisor);
             Assert.AreEqual("=Qwerty", pair.Label);
         }
@@ -41,8 +41,7 @@ namespace FizzBuzzerTests.FizzBuzzerClass
         [TestCategory(trait)]
         public void CanAddThree()
         {
-            //2 default parameters + 3 we will add
-            int expected = 5;
+            int expected = 3;
             fizzBuzzer.AddDivisorLabelPair(7, "=Qwerty");
             fizzBuzzer.AddDivisorLabelPair(5, "ppppppppppp sadfffff");
             fizzBuzzer.AddDivisorLabelPair(6, "slfkjdf");
@@ -62,12 +61,11 @@ namespace FizzBuzzerTests.FizzBuzzerClass
             fizzBuzzer.AddDivisorLabelPair(pairs[0].Key, pairs[0].Value);
             fizzBuzzer.AddDivisorLabelPair(pairs[1].Key, pairs[1].Value);
             fizzBuzzer.AddDivisorLabelPair(pairs[2].Key, pairs[2].Value);
-            //ignore first two (default) pairs
-            for (int i = 2; i < 5; i++)
+            for (int i = 0; i < 3; i++)
             {
                 var pair = fizzBuzzer.DivisorLabels[i];
-                Assert.AreEqual(pairs[i-2].Key, pair.Divisor);
-                Assert.AreEqual(pairs[i-2].Value, pair.Label);
+                Assert.AreEqual(pairs[i].Key, pair.Divisor);
+                Assert.AreEqual(pairs[i].Value, pair.Label);
             }
         }
     }

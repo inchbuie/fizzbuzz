@@ -21,10 +21,10 @@ namespace FizzBuzz
 
             // custom arguments 
             //print number in range 3-65, FOUR if divisible by 4, touchdown! if divisible by 7, * if divisible by 9
-            var customParams = new List<DivisorLabel>();
-            customParams.Add(new DivisorLabel(4, "FOUR"));
-            customParams.Add(new DivisorLabel(7, "touchdown"));
-            customParams.Add(new DivisorLabel(9, "*"));
+            var customParams = new List<DivisorLabelPair>();
+            customParams.Add(new DivisorLabelPair(4, "FOUR"));
+            customParams.Add(new DivisorLabelPair(7, "touchdown"));
+            customParams.Add(new DivisorLabelPair(9, "*"));
             FizzBuzzer customBuzzer = new FizzBuzzer(customParams, 3, 65);
             results = customBuzzer.CheckRange();
             foreach (var line in results) Console.Write(line);
