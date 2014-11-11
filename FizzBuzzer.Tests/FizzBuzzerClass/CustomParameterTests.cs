@@ -37,7 +37,7 @@ namespace FizzBuzzerTests.FizzBuzzerClass
         }
         [TestMethod]
         [TestCategory(trait)]
-        public void CustomParameter_ThreEntirelyCustomDivisorLabelsShouldWork()
+        public void CustomParameter_ThreeEntirelyCustomDivisorLabelsShouldWork()
         {
             List<DivisorLabelPair> labelPairs = new List<DivisorLabelPair>() 
             { 
@@ -128,6 +128,27 @@ namespace FizzBuzzerTests.FizzBuzzerClass
             var expected = string.Format("{0}three{1}", value, Environment.NewLine);
             int customMin = 317;
             int customMax = 999;
+            var fizzBuzzer = new FizzBuzzer(labelPairs, customMin, customMax);
+            var actual = fizzBuzzer.CheckRange()[value - customMin];
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        [TestCategory(trait)]
+        public void CustomParameter_CustomRangeWithCustomDivisorLabels_NonDivisibleShouldReturnNumber()
+        {
+            List<DivisorLabelPair> labelPairs = new List<DivisorLabelPair>() 
+            { 
+                new DivisorLabelPair(2, "two") 
+                ,new DivisorLabelPair(3, "three")
+                ,new DivisorLabelPair(4, "four") 
+                ,new DivisorLabelPair(5, "five") 
+                ,new DivisorLabelPair(6, "six") 
+            };
+
+            int value = 43;
+            var expected = string.Format("{0}{1}", value, Environment.NewLine);
+            int customMin = 9;
+            int customMax = 99;
             var fizzBuzzer = new FizzBuzzer(labelPairs, customMin, customMax);
             var actual = fizzBuzzer.CheckRange()[value - customMin];
             Assert.AreEqual(expected, actual);

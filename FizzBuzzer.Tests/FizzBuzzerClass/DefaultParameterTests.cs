@@ -67,6 +67,26 @@ namespace FizzBuzzerTests.FizzBuzzerClass
         }
         [TestMethod]
         [TestCategory(trait)]
+        public void DefaultParameters_NondivisibleShouldReturnNumber()
+        {
+            int value = 14;
+            var expected = string.Format("{0}{1}", value, Environment.NewLine);
+            var fizzBuzzer = new FizzBuzzer();
+            var actual = fizzBuzzer.CheckRange()[value - 1];
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        [TestCategory(trait)]
+        public void DefaultParameters_NondivisibleShouldReturnNumber2()
+        {
+            int value = 97;
+            var expected = string.Format("{0}{1}", value, Environment.NewLine);
+            var fizzBuzzer = new FizzBuzzer();
+            var actual = fizzBuzzer.CheckRange()[value - 1];
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        [TestCategory(trait)]
         public void DefaultParameters_ShouldBe100Total()
         {
             var expected = 100;
