@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FizzBuzz;
 
-namespace FizzBuzzerTests
+namespace FizzBuzzerTests.FizzBuzzerClass
 {
     [TestClass]
     public class CustomParameterTests

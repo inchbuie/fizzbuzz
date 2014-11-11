@@ -6,28 +6,9 @@ using System.Threading.Tasks;
 
 namespace FizzBuzz
 {
-    public class DivisorLabel
-    {
-        public DivisorLabel(int divisor, string label)
-        {
-            if (null == label) throw new ArgumentNullException("label");
-            Label = label;
-            Divisor = divisor;
-        }
-        public string Label;
-        public int Divisor;
-
-        public bool IsDivisible(int value)
-        {
-            return (value % Divisor == 0);
-        }
-        public string LabelIfDivisible(int value)
-        {
-
-            return IsDivisible(value) ? Label : string.Empty;
-        }
-    }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public class FizzBuzzer
     {
         const int defaultMin = 1;
@@ -98,27 +79,5 @@ namespace FizzBuzz
                 DivisorLabels.Add(pair);
             }
         }
-
-        //public List<string> CheckRange_old()
-        //{
-        //    var results = new List<string>();
-        //    for (int i = Min; i <= Max; i++)
-        //    {
-        //        string whatToPrint = i.ToString();
-
-        //        bool fizzy = i % 3 == 0;
-        //        bool buzzy  = i % 5 == 0;
-
-        //        if (fizzy){
-        //            whatToPrint += "fizz";
-        //        }
-        //        if (buzzy) {
-        //            whatToPrint += "buzz";
-        //        }
-
-        //        results.Add(whatToPrint + Environment.NewLine);
-        //    }
-        //    return results;
-        //}
     }
 }

@@ -50,10 +50,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="DefaultParameterTests.cs" />
+    <Compile Include="FizzBuzzerClass\DefaultParameterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CustomParameterTests.cs" />
-    <Compile Include="CustomRangeTests.cs" />
+    <Compile Include="FizzBuzzerClass\CustomParameterTests.cs" />
+    <Compile Include="FizzBuzzerClass\CustomRangeTests.cs" />
+    <Compile Include="FizzBuzzerClass\AddDivisorLabelPairTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FizzBuzzer\FizzBuzzer.csproj">

@@ -11,8 +11,7 @@ namespace FizzBuzz
         static void Main(string[] args)
         {
             // default arguments 
-            //print number in range 1-100, fizz if divisible by 3, buzz if divisible by 5
-            
+            //print number in range 1-100, fizz if divisible by 3, buzz if divisible by 5            
             FizzBuzzer buzzer = new FizzBuzzer();
             var results = buzzer.CheckRange();
             foreach(var line in results) Console.Write(line);
